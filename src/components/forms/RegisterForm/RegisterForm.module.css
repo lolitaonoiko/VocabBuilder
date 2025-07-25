@@ -1,0 +1,25 @@
+.registerBox {
+    background-color: var(--back-green);
+}
+.title {
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1.06667;
+    letter-spacing: -0.02em;
+}
+.text {
+    color: rgba(18, 20, 23, 0.8);
+}
+.input {
+    border: 1px solid rgba(18, 20, 23, 0.1);
+    border-radius: 15px;
+    padding: 16px 18px;
+    background-color: transparent;
+    width: 343px;
+    height: 56px;
+}
+.input::placeholder {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--black);
+}

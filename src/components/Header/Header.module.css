@@ -1,0 +1,11 @@
+.header {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    padding: 16px;
+}
+.headerText {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.33333;
+}

@@ -1,16 +1,14 @@
 :root {
-    /* font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+    color: var(--black);
+    background-color: var(--white);
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424; */
-
+    font-optical-sizing: auto;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    margin: 0 auto;
 }
 * {
     box-sizing: border-box;
@@ -20,18 +18,6 @@ html {
     scroll-behavior: smooth;
 }
 
-:root {
-    /* max-width: 1440px; */
-    margin: 0 auto;
-    /* padding: 2rem; */
-    /* text-align: center; */
-
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
 button {
     border: none;
     background-color: transparent;
@@ -39,10 +25,13 @@ button {
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    font-optical-sizing: auto;
+    font-family: 'Fixel Display', sans-serif;
+
     font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
     font-style: normal;
+
     margin: 0;
     padding: 0;
 }
