@@ -9,12 +9,15 @@
 }
 .textBox {
     max-width: 343px;
+    margin-bottom: 16px;
 }
 .title {
     font-weight: 600;
     font-size: 30px;
     line-height: 1.06667;
     letter-spacing: -0.02em;
+
+    margin-bottom: 16px;
 }
 .text {
     color: rgba(18, 20, 23, 0.8);
@@ -26,12 +29,18 @@
     max-width: 343px;
 }
 .input {
+    font-family: inherit;
     border: 1px solid rgba(18, 20, 23, 0.1);
     border-radius: 15px;
     padding: 16px 18px;
     background-color: transparent;
     max-width: 343px;
     height: 56px;
+
+    margin-bottom: 14px;
+}
+.input:last-of-type {
+    margin-bottom: 32px;
 }
 .input::placeholder {
     font-size: 16px;
@@ -49,6 +58,9 @@
     font-weight: 700;
     color: var(--white);
 }
+.filledBtn:hover {
+    background-color: var(--light-green);
+}
 .underlinedBtn {
     font-weight: 700;
     font-size: 16px;
@@ -58,4 +70,7 @@
     text-decoration-skip-ink: none;
     color: rgba(18, 20, 23, 0.5);
     max-width: 343px;
+}
+.underlinedBtn:hover {
+    color: var(--black);
 }

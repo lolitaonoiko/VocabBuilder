@@ -7,10 +7,10 @@ const RegisterForm = lazy(() => import('../../components/forms/RegisterForm/Regi
 
 const RegisterPage = () => {
     return (
-        <>
+        <div className={s.registerPage}>
             <HeroSection />
             <RegisterForm />
-        </>
+        </div>
     );
 };
 

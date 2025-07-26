@@ -1,10 +1,19 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { FiEye, FiEyeOff } from 'react-icons/fi';
 
 import s from './RegisterForm.module.css';
 import { registerValidationSchema } from '../../../validation/registerSchema';
+import { lazy, useState } from 'react';
+
+const ValidationInfo = lazy(() => import('../../ValidationInfo/ValidationInfo'));
 
 const RegisterForm = () => {
+    const [hiddenPass, setHiddenPass] = useState(true);
+    const handleOnClickEye = () => {
+        setHiddenPass(prev => !prev);
+    };
+
     const {
         register,
         handleSubmit,
@@ -19,13 +28,15 @@ const RegisterForm = () => {
             </div>
             <form className={s.form} onSubmit={handleSubmit(data => console.log(data))}>
                 <input {...register('name')} className={s.input} placeholder="Name" type="text" />
-                <span>{errors.name?.message}</span>
+                {errors.name?.message && <ValidationInfo name={'warning'} errors={errors} type={'name'} />}
 
                 <input {...register('email')} className={s.input} placeholder="Email" type="email" />
-                <span>{errors.email?.message}</span>
+                {errors.email?.message && <ValidationInfo name={'warning'} errors={errors} type={'email'} />}
 
-                <input {...register('password')} className={s.input} placeholder="Password" type="password" />
-                <span>{errors.password?.message}</span>
+                <input {...register('password')} className={s.input} placeholder="Password" type={hiddenPass ? 'password' : 'text'} />
+                {errors.password?.message && <ValidationInfo name={'warning'} errors={errors} type={'password'} />}
+
+                <button onClick={handleOnClickEye}>{hiddenPass ? <FiEyeOff /> : <FiEye />}</button>
 
                 <button className={s.filledBtn} type="submit">
                     Register
