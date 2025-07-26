@@ -16,15 +16,14 @@ function App() {
         <>
             <Suspense fallback={<div>Loading...</div>}>
                 <Routes>
-                    <Route path="/register" element={<RegisterPage />} />
-                    <Route path="/login" element={<LoginPage />} />
-                    {/* Приватні маршрути з MainLayout як обгорткою */}
-                    <Route path="/" element={<PrivateRoute component={<MainLayout />} />}>
-                        <Route index element={<RecommendPage />} /> {/* За замовчуванням "/" */}
-                        <Route path="dictionary" element={<DictionaryPage />} />
-                        <Route path="training" element={<TrainingPage />} />
+                    <Route path="/" element={<MainLayout />}>
+                        <Route path="register" element={<RegisterPage />} />
+                        <Route path="login" element={<LoginPage />} />
+                        <Route index element={<PrivateRoute component={<DictionaryPage />} />} />
+                        <Route path="recommend" element={<PrivateRoute component={<RecommendPage />} />} />
+                        <Route path="training" element={<PrivateRoute component={<TrainingPage />} />} />
+                        <Route path="*" element={<NotFoundPage />} />
                     </Route>
-                    <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </Suspense>
         </>

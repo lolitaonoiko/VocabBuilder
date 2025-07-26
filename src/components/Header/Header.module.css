@@ -1,8 +1,10 @@
 .header {
     display: flex;
+    margin: 0 auto;
     gap: 16px;
     align-items: center;
     padding: 16px;
+    max-width: 375px;
 }
 .headerText {
     font-weight: 600;
