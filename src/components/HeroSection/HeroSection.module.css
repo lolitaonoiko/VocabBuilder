@@ -1,3 +1,28 @@
 .img {
     margin: 0 auto;
 }
+
+.list {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    padding-top: 16px;
+}
+
+.list li {
+    position: relative;
+}
+
+.list li:not(:last-child)::after {
+    content: '·';
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--dark-grey);
+}
+.heroText {
+    font-size: 14px;
+    text-align: center;
+    color: var(--dark-grey);
+}

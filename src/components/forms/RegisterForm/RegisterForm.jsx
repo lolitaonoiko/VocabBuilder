@@ -55,10 +55,10 @@ const RegisterForm = () => {
                 <button className={s.filledBtn} type="submit">
                     Register
                 </button>
-                <button className={s.underlinedBtn} type="button" onClick={handleOnClickRedirect}>
-                    Login
-                </button>
             </form>
+            <button className={s.underlinedBtn} type="button" onClick={handleOnClickRedirect}>
+                Login
+            </button>
         </div>
     );
 };
