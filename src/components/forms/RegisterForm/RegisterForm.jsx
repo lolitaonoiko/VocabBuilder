@@ -6,13 +6,19 @@ import s from './RegisterForm.module.css';
 import { registerValidationSchema } from '../../../validation/registerSchema';
 import { lazy, useState } from 'react';
 import clsx from 'clsx';
+import { useNavigate } from 'react-router-dom';
 
 const ValidationInfo = lazy(() => import('../../ValidationInfo/ValidationInfo'));
 
 const RegisterForm = () => {
+    const navigate = useNavigate();
     const [hiddenPass, setHiddenPass] = useState(true);
+
     const handleOnClickEye = () => {
         setHiddenPass(prev => !prev);
+    };
+    const handleOnClickRedirect = () => {
+        navigate('/login');
     };
 
     const {
@@ -49,7 +55,9 @@ const RegisterForm = () => {
                 <button className={s.filledBtn} type="submit">
                     Register
                 </button>
-                <button className={s.underlinedBtn}>Login</button>
+                <button className={s.underlinedBtn} type="button" onClick={handleOnClickRedirect}>
+                    Login
+                </button>
             </form>
         </div>
     );
