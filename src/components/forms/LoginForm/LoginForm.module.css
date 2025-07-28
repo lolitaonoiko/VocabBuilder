@@ -1,0 +1,98 @@
+.loginBox {
+    background-color: var(--back-green);
+    border-radius: 25px 25px 0 0;
+    padding: 32px 16px;
+    text-align: start;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.textBox {
+    max-width: 343px;
+    margin-bottom: 16px;
+}
+.title {
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1.06667;
+    letter-spacing: -0.02em;
+
+    margin-bottom: 16px;
+}
+.text {
+    color: rgba(18, 20, 23, 0.8);
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 343px;
+}
+.inptBox {
+    position: relative;
+
+    margin-bottom: 14px;
+}
+.input {
+    font-family: inherit;
+    font-size: 16px;
+
+    border: 1px solid rgba(18, 20, 23, 0.1);
+    border-radius: 15px;
+    padding: 16px 18px;
+    background-color: transparent;
+    width: 100%;
+    height: 56px;
+}
+.input:hover {
+    border-color: var(--green);
+}
+form > div:last-of-type {
+    margin-bottom: 32px;
+}
+
+.input::placeholder {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--black);
+}
+.filledBtn {
+    border-radius: 30px;
+    padding: 16px;
+    max-width: 343px;
+    height: 56px;
+    background-color: var(--green);
+
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+}
+.filledBtn:hover {
+    background-color: var(--light-green);
+}
+.underlinedBtn {
+    font-weight: 700;
+    font-size: 16px;
+    padding: 16px;
+    line-height: 1.5;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    color: var(--grey);
+    max-width: 343px;
+}
+.underlinedBtn:hover {
+    color: var(--black);
+}
+.iconBtn {
+    position: absolute;
+    right: 18px;
+    top: 16px;
+}
+.inptError {
+    border-color: var(--red);
+    margin-bottom: 4px;
+}
+.inptError:hover {
+    border-color: var(--red);
+}
