@@ -6,16 +6,17 @@
     position: absolute;
     bottom: -12px;
 }
-.icon {
-    width: 16px;
-    height: 16px;
-    fill: var(--red);
-}
 .errorMessage {
+    width: 310px;
     font-size: 12px;
     line-height: 1;
     letter-spacing: 0.01em;
     color: var(--red);
+}
+.icon {
+    width: 16px;
+    height: 16px;
+    fill: var(--red);
 }
 .passErrorMessage {
     bottom: -22px;
