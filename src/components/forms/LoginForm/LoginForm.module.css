@@ -1,7 +1,12 @@
 .loginBox {
     background-color: var(--back-green);
     border-radius: 25px 25px 0 0;
-    padding: 32px 16px;
+
+    padding-bottom: 41px;
+
+    padding-top: 32px;
+    padding-left: 16px;
+    padding-right: 16px;
     text-align: start;
 
     display: flex;
@@ -10,7 +15,7 @@
 }
 .textBox {
     max-width: 343px;
-    margin-bottom: 16px;
+    margin-bottom: 40px;
 }
 .title {
     font-weight: 600;

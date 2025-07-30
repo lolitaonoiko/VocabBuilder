@@ -1,12 +1,19 @@
 .img {
     margin: 0 auto;
+    object-fit: cover;
+
+    height: 191px;
+    width: 247px;
+
+    margin-bottom: 8px;
 }
 
 .list {
     display: flex;
     justify-content: center;
     gap: 18px;
-    padding-top: 16px;
+    padding-top: 8px;
+    margin-bottom: 43px;
 }
 
 .list li {
@@ -25,4 +32,5 @@
     font-size: 14px;
     text-align: center;
     color: var(--dark-grey);
+    line-height: 1.333;
 }

@@ -1,11 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import s from './LoginForm.module.css';
-import { useState } from 'react';
+import { lazy, useState } from 'react';
 import { loginValidationSchema } from '../../../validation/loginSchema';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import clsx from 'clsx';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
+
+const ValidationInfo = lazy(() => import('../../ValidationInfo/ValidationInfo'));
 
 const LoginForm = () => {
     const navigate = useNavigate();

@@ -7,6 +7,8 @@
     bottom: -12px;
 }
 .icon {
+    width: 16px;
+    height: 16px;
     fill: var(--red);
 }
 .errorMessage {
@@ -14,4 +16,7 @@
     line-height: 1.5;
     letter-spacing: 0.01em;
     color: var(--red);
+}
+.passErrorMessage {
+    bottom: -30px;
 }
