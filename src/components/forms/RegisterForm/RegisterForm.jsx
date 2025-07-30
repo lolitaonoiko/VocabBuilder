@@ -23,9 +23,14 @@ const RegisterForm = () => {
 
     const {
         register,
+        reset,
+        setError,
         handleSubmit,
         formState: { errors },
-    } = useForm({ resolver: yupResolver(registerValidationSchema) });
+    } = useForm({
+        resolver: yupResolver(registerValidationSchema),
+        mode: 'onChange',
+    });
 
     return (
         <div className={s.registerBox}>
