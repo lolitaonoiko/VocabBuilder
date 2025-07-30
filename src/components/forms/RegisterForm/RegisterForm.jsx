@@ -7,8 +7,9 @@ import { registerValidationSchema } from '../../../validation/registerSchema';
 import { lazy, useState } from 'react';
 import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
+import ValidationInfo from '../../ValidationInfo/ValidationInfo';
 
-const ValidationInfo = lazy(() => import('../../ValidationInfo/ValidationInfo'));
+// const ValidationInfo = lazy(() => import('../../ValidationInfo/ValidationInfo'));
 
 const RegisterForm = () => {
     const navigate = useNavigate();

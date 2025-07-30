@@ -10,11 +10,12 @@ const DictionaryPage = lazy(() => import('./pages/DictionaryPage/DictionaryPage'
 const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
 const MainLayout = lazy(() => import('./components/MainLayout/MainLayout'));
+const Loader = lazy(() => import('./components/Loader/Loader'));
 
 function App() {
     return (
         <>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loader />}>
                 <Routes>
                     <Route path="/" element={<MainLayout />}>
                         <Route path="register" element={<RegisterPage />} />

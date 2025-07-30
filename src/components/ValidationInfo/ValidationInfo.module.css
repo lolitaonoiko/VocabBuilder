@@ -13,10 +13,10 @@
 }
 .errorMessage {
     font-size: 12px;
-    line-height: 1.5;
+    line-height: 1;
     letter-spacing: 0.01em;
     color: var(--red);
 }
 .passErrorMessage {
-    bottom: -30px;
+    bottom: -22px;
 }

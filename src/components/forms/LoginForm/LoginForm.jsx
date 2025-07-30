@@ -6,8 +6,9 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import clsx from 'clsx';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
+import ValidationInfo from '../../ValidationInfo/ValidationInfo';
 
-const ValidationInfo = lazy(() => import('../../ValidationInfo/ValidationInfo'));
+// const ValidationInfo = lazy(() => import('../../ValidationInfo/ValidationInfo'));
 
 const LoginForm = () => {
     const navigate = useNavigate();
@@ -20,9 +21,14 @@ const LoginForm = () => {
     };
     const {
         register,
+        reset,
+        setError,
         handleSubmit,
         formState: { errors },
-    } = useForm({ resolver: yupResolver(loginValidationSchema) });
+    } = useForm({
+        resolver: yupResolver(loginValidationSchema),
+        mode: 'onChange',
+    });
 
     return (
         <div className={s.loginBox}>
