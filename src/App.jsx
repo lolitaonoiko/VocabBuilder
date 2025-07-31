@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import { lazy, Suspense } from 'react';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import { Toaster } from 'react-hot-toast';
 
 const RegisterPage = lazy(() => import('./pages/RegisterPage/RegisterPage'));
 const RecommendPage = lazy(() => import('./pages/RecommendPage/RecommendPage'));
@@ -26,6 +27,7 @@ function App() {
                         <Route path="*" element={<NotFoundPage />} />
                     </Route>
                 </Routes>
+                <Toaster />
             </Suspense>
         </>
     );

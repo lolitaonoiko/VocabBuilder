@@ -6,3 +6,10 @@ export const vocabBuilderApi = axios.create({
         'Content-Type': 'application/json',
     },
 });
+export const setToken = token => {
+    vocabBuilderApi.defaults.headers.common.Authorization = `Bearer ${token}`;
+};
+
+export const removeToken = () => {
+    vocabBuilderApi.defaults.headers.common.Authorization = ``;
+};
