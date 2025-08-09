@@ -1,4 +1,5 @@
 import { lazy } from 'react';
+
 import s from './Header.module.css';
 
 const Logo = lazy(() => import('../Logo/Logo'));
