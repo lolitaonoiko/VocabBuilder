@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { loginThunk, registerThunk } from './operations';
+import { loginThunk, logoutThunk, registerThunk } from './operations';
+import { FaF } from 'react-icons/fa6';
 
 const initialState = {
     user: {
@@ -48,6 +49,23 @@ const slice = createSlice({
                 state.isLoggedIn = true;
                 state.user.email = action.payload.email;
                 state.user.name = action.payload.name;
+            })
+            .addCase(logoutThunk.pending, state => {
+                state.isAuthLoading = true;
+                state.isAuthError = null;
+            })
+            .addCase(logoutThunk.rejected, (state, action) => {
+                state.isAuthError = action.payload;
+                state.isAuthLoading = false;
+                state.isLoggedIn = true;
+            })
+            .addCase(logoutThunk.fulfilled, state => {
+                state.isAuthLoading = false;
+                state.isAuthError = null;
+                state.isLoggedIn = false;
+                state.user.email = null;
+                state.user.name = null;
+                state.user.id = null;
             }),
 });
 
