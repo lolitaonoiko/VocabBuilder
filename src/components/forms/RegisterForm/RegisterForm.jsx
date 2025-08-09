@@ -22,7 +22,7 @@ const RegisterForm = () => {
     const {
         register,
         reset,
-        // setError,
+        setError,
         handleSubmit,
         formState: { errors },
     } = useForm({
@@ -52,7 +52,10 @@ const RegisterForm = () => {
             reset();
         } catch (error) {
             if (error === 'Request failed with status code 409') {
-                toast.error('Email in use');
+                setError('email', {
+                    type: 'manual',
+                    message: 'Email in use',
+                });
             } else {
                 toast.error(error);
             }

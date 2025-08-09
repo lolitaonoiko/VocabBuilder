@@ -73,6 +73,7 @@ form > div:last-of-type {
 .filledBtn:hover {
     background-color: var(--light-green);
 }
+
 .underlinedBtn {
     font-weight: 700;
     font-size: 16px;
