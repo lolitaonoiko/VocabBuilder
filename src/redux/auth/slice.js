@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { loginThunk, logoutThunk, registerThunk } from './operations';
-import { FaF } from 'react-icons/fa6';
+
+import { currentUserThunk, loginThunk, logoutThunk, registerThunk } from './operations';
 
 const initialState = {
     user: {
+        // токен в локал зберегти?
         email: null,
         name: null,
         id: null,
@@ -18,6 +19,7 @@ const slice = createSlice({
     initialState,
     extraReducers: builder =>
         builder
+            // дублювання коду, винести у функції + додати addMatch
             .addCase(registerThunk.fulfilled, (state, action) => {
                 state.isAuthError = null;
                 state.isAuthLoading = false;
@@ -57,7 +59,6 @@ const slice = createSlice({
             .addCase(logoutThunk.rejected, (state, action) => {
                 state.isAuthError = action.payload;
                 state.isAuthLoading = false;
-                state.isLoggedIn = true;
             })
             .addCase(logoutThunk.fulfilled, state => {
                 state.isAuthLoading = false;
@@ -66,6 +67,12 @@ const slice = createSlice({
                 state.user.email = null;
                 state.user.name = null;
                 state.user.id = null;
+            })
+            .addCase(currentUserThunk.fulfilled, (state, action) => {
+                state.user.id = action.payload.id;
+            })
+            .addCase(currentUserThunk.rejected, (state, action) => {
+                state.isAuthError = action.payload;
             }),
 });
 

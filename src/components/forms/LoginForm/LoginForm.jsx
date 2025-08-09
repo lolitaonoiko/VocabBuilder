@@ -1,15 +1,17 @@
-import { useNavigate } from 'react-router-dom';
-import s from './LoginForm.module.css';
-import { useState } from 'react';
-import { loginValidationSchema } from '../../../validation/loginSchema';
-import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import clsx from 'clsx';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
-import ValidationInfo from '../../ValidationInfo/ValidationInfo';
+import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { loginThunk } from '../../../redux/auth/operations';
 import toast from 'react-hot-toast';
+import { useState } from 'react';
+import clsx from 'clsx';
+
+import { loginValidationSchema } from '../../../validation/loginSchema';
+import ValidationInfo from '../../ValidationInfo/ValidationInfo';
+import { currentUserThunk, loginThunk } from '../../../redux/auth/operations';
+
+import s from './LoginForm.module.css';
 
 const LoginForm = () => {
     const navigate = useNavigate();
@@ -36,8 +38,6 @@ const LoginForm = () => {
     };
 
     const onSubmit = async data => {
-        console.log(data);
-
         try {
             await dispatch(
                 loginThunk({
@@ -46,7 +46,10 @@ const LoginForm = () => {
                 })
             )
                 .unwrap()
-                .then(() => navigate('/dictionary'));
+                .then(() => {
+                    dispatch(currentUserThunk());
+                    navigate('/dictionary');
+                });
             reset();
         } catch (error) {
             toast.error(error);

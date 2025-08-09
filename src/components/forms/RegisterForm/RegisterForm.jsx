@@ -4,13 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import clsx from 'clsx';
-
 import { useState } from 'react';
+import clsx from 'clsx';
 
 import { registerValidationSchema } from '../../../validation/registerSchema';
 import ValidationInfo from '../../ValidationInfo/ValidationInfo';
-import { registerThunk } from '../../../redux/auth/operations';
+import { currentUserThunk, registerThunk } from '../../../redux/auth/operations';
 
 import s from './RegisterForm.module.css';
 
@@ -48,7 +47,10 @@ const RegisterForm = () => {
                 })
             )
                 .unwrap()
-                .then(() => navigate('/dictionary'));
+                .then(() => {
+                    dispatch(currentUserThunk());
+                    navigate('/dictionary');
+                });
             reset();
         } catch (error) {
             if (error === 'Request failed with status code 409') {
