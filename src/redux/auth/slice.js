@@ -32,6 +32,22 @@ const slice = createSlice({
                 state.isAuthLoading = false;
                 state.isAuthError = action.payload;
                 state.isLoggedIn = false;
+            })
+            .addCase(loginThunk.pending, state => {
+                state.isAuthLoading = true;
+                state.isAuthError = null;
+            })
+            .addCase(loginThunk.rejected, (state, action) => {
+                state.isAuthLoading = false;
+                state.isAuthError = action.payload;
+                state.isLoggedIn = false;
+            })
+            .addCase(loginThunk.fulfilled, (state, action) => {
+                state.isAuthError = null;
+                state.isAuthLoading = false;
+                state.isLoggedIn = true;
+                state.user.email = action.payload.email;
+                state.user.name = action.payload.name;
             }),
 });
 
