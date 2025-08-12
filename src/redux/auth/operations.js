@@ -34,6 +34,7 @@ export const logoutThunk = createAsyncThunk('/api/signout', async (_, thunkAPI) 
 export const currentUserThunk = createAsyncThunk('/api/current', async (_, thunkAPI) => {
     try {
         const { data } = await vocabBuilderApi.get('/api/users/current');
+
         return data;
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message);
