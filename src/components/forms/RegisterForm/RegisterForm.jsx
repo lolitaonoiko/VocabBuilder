@@ -9,7 +9,7 @@ import clsx from 'clsx';
 
 import { registerValidationSchema } from '../../../validation/registerSchema';
 import ValidationInfo from '../../ValidationInfo/ValidationInfo';
-import { currentUserThunk, registerThunk } from '../../../redux/auth/operations';
+import { registerThunk } from '../../../redux/auth/operations';
 
 import s from './RegisterForm.module.css';
 
@@ -48,7 +48,6 @@ const RegisterForm = () => {
             )
                 .unwrap()
                 .then(() => {
-                    dispatch(currentUserThunk());
                     navigate('/dictionary');
                 });
             reset();

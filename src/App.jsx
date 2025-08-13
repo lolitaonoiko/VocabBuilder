@@ -1,8 +1,13 @@
+import { lazy, Suspense, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import './App.css';
-import { lazy, Suspense } from 'react';
-import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import { Toaster } from 'react-hot-toast';
+import { useDispatch, useSelector } from 'react-redux';
+
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import { currentUserThunk } from './redux/auth/operations';
+
+import './App.css';
+import { selectToken } from './redux/auth/selectors';
 
 const RegisterPage = lazy(() => import('./pages/RegisterPage/RegisterPage'));
 const RecommendPage = lazy(() => import('./pages/RecommendPage/RecommendPage'));
@@ -14,6 +19,15 @@ const MainLayout = lazy(() => import('./components/MainLayout/MainLayout'));
 const Loader = lazy(() => import('./components/Loader/Loader'));
 
 function App() {
+    const dispatch = useDispatch();
+    const token = useSelector(selectToken);
+
+    useEffect(() => {
+        if (token) {
+            dispatch(currentUserThunk());
+        }
+    });
+
     return (
         <>
             <Suspense fallback={<Loader />}>

@@ -9,7 +9,7 @@ import clsx from 'clsx';
 
 import { loginValidationSchema } from '../../../validation/loginSchema';
 import ValidationInfo from '../../ValidationInfo/ValidationInfo';
-import { currentUserThunk, loginThunk } from '../../../redux/auth/operations';
+import { loginThunk } from '../../../redux/auth/operations';
 
 import s from './LoginForm.module.css';
 
@@ -47,7 +47,6 @@ const LoginForm = () => {
             )
                 .unwrap()
                 .then(() => {
-                    dispatch(currentUserThunk());
                     navigate('/dictionary');
                 });
             reset();

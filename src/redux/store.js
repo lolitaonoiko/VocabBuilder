@@ -6,7 +6,7 @@ import { FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, R
 const persistConfig = {
     key: 'auth',
     storage,
-    whitelist: ['token'], // only navigation will be persisted
+    whitelist: ['token'],
 };
 
 export const store = configureStore({

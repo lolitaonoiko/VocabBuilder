@@ -4,7 +4,6 @@ import { currentUserThunk, loginThunk, logoutThunk, registerThunk } from './oper
 
 const initialState = {
     user: {
-        // токен в локал зберегти?
         email: null,
         name: null,
         id: null,
@@ -74,9 +73,9 @@ const slice = createSlice({
             })
             .addCase(currentUserThunk.fulfilled, (state, action) => {
                 state.user.id = action.payload._id;
+                state.user.email = action.payload.email;
+                state.user.name = action.payload.name;
                 state.token = action.payload.token;
-
-                // token?
             })
             .addCase(currentUserThunk.rejected, (state, action) => {
                 state.isAuthError = action.payload;
