@@ -36,8 +36,8 @@ function App() {
                 <Routes>
                     <Route path="/" element={<MainLayout />}>
                         <Route path="register" element={<RegisterPage />} />
-                        <Route path="login" element={<LoginPage />} />
-                        <Route index path="dictionary" element={<PrivateRoute component={<DictionaryPage />} />} />
+                        <Route index path="login" element={<LoginPage />} />
+                        <Route path="dictionary" element={<PrivateRoute component={<DictionaryPage />} />} />
                         <Route path="recommend" element={<PrivateRoute component={<RecommendPage />} />} />
                         <Route path="training" element={<PrivateRoute component={<TrainingPage />} />} />
                         <Route path="*" element={<NotFoundPage />} />
