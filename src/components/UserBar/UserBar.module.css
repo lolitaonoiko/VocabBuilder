@@ -1,0 +1,16 @@
+.userName {
+    font-weight: 500;
+    color: var(--black);
+}
+.spanIcon {
+    width: 36px;
+    height: 36px;
+    border-radius: 30px;
+    background-color: #85aa9f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.icon {
+    fill: rgba(252, 252, 252, 0.7);
+}

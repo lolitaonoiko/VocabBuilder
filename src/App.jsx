@@ -8,6 +8,7 @@ import { currentUserThunk } from './redux/auth/operations';
 
 import './App.css';
 import { selectToken } from './redux/auth/selectors';
+import { setToken } from './api/vocabBuilderApi';
 
 const RegisterPage = lazy(() => import('./pages/RegisterPage/RegisterPage'));
 const RecommendPage = lazy(() => import('./pages/RecommendPage/RecommendPage'));
@@ -24,9 +25,10 @@ function App() {
 
     useEffect(() => {
         if (token) {
+            setToken(token);
             dispatch(currentUserThunk());
         }
-    });
+    }, [dispatch, token]);
 
     return (
         <>
@@ -35,7 +37,7 @@ function App() {
                     <Route path="/" element={<MainLayout />}>
                         <Route path="register" element={<RegisterPage />} />
                         <Route path="login" element={<LoginPage />} />
-                        <Route index element={<PrivateRoute component={<DictionaryPage />} />} />
+                        <Route index path="dictionary" element={<PrivateRoute component={<DictionaryPage />} />} />
                         <Route path="recommend" element={<PrivateRoute component={<RecommendPage />} />} />
                         <Route path="training" element={<PrivateRoute component={<TrainingPage />} />} />
                         <Route path="*" element={<NotFoundPage />} />

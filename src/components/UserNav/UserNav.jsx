@@ -1,5 +1,5 @@
-const Navigation = () => {
-    return <div>Navigation</div>;
+const UserNav = () => {
+    return <>userNav</>;
 };
 
-export default Navigation;
+export default UserNav;
