@@ -1,6 +1,7 @@
 import { slide as Menu } from 'react-burger-menu';
 import { NavLink } from 'react-router-dom';
 const BurgerMenu = () => {
+    const burger = true;
     return (
         <div>
             <Menu>
