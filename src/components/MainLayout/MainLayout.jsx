@@ -1,4 +1,4 @@
-import { Outlet, useLocation } from 'react-router-dom';
+import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import s from './MainLayout.module.css';
 import { lazy } from 'react';
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
