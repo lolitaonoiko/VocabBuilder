@@ -35,9 +35,9 @@ function App() {
         <>
             <Suspense fallback={<Loader />}>
                 <Routes>
-                    <Route path="/" element={<MainLayout />}>
-                        <Route path="register" element={<RestrictedRoute component={<RegisterPage />} />} />
-                        <Route index path="login" element={<RestrictedRoute component={<LoginPage />} />} />
+                    <Route path="register" element={<RestrictedRoute component={<RegisterPage />} />} />
+                    <Route index path="login" element={<RestrictedRoute component={<LoginPage />} />} />
+                    <Route path="/" element={<PrivateRoute component={<MainLayout />} />}>
                         <Route path="dictionary" element={<PrivateRoute component={<DictionaryPage />} />} />
                         <Route path="recommend" element={<PrivateRoute component={<RecommendPage />} />} />
                         <Route path="training" element={<PrivateRoute component={<TrainingPage />} />} />
