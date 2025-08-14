@@ -9,6 +9,7 @@ import { currentUserThunk } from './redux/auth/operations';
 import './App.css';
 import { selectToken } from './redux/auth/selectors';
 import { setToken } from './api/vocabBuilderApi';
+import RestrictedRoute from './components/RestrictedRoute/RestrictedRoute';
 
 const RegisterPage = lazy(() => import('./pages/RegisterPage/RegisterPage'));
 const RecommendPage = lazy(() => import('./pages/RecommendPage/RecommendPage'));
@@ -35,8 +36,8 @@ function App() {
             <Suspense fallback={<Loader />}>
                 <Routes>
                     <Route path="/" element={<MainLayout />}>
-                        <Route path="register" element={<RegisterPage />} />
-                        <Route index path="login" element={<LoginPage />} />
+                        <Route path="register" element={<RestrictedRoute component={<RegisterPage />} />} />
+                        <Route index path="login" element={<RestrictedRoute component={<LoginPage />} />} />
                         <Route path="dictionary" element={<PrivateRoute component={<DictionaryPage />} />} />
                         <Route path="recommend" element={<PrivateRoute component={<RecommendPage />} />} />
                         <Route path="training" element={<PrivateRoute component={<TrainingPage />} />} />
