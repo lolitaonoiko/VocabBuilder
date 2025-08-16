@@ -7,7 +7,7 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import { currentUserThunk } from './redux/auth/operations';
 
 import './App.css';
-import { selectToken } from './redux/auth/selectors';
+import { selectIsRefreshing, selectToken } from './redux/auth/selectors';
 import { setToken } from './api/vocabBuilderApi';
 import RestrictedRoute from './components/RestrictedRoute/RestrictedRoute';
 
@@ -23,6 +23,7 @@ const Loader = lazy(() => import('./components/Loader/Loader'));
 function App() {
     const dispatch = useDispatch();
     const token = useSelector(selectToken);
+    const isRefreshing = useSelector(selectIsRefreshing);
 
     useEffect(() => {
         if (token) {
@@ -31,18 +32,22 @@ function App() {
         }
     }, [dispatch, token]);
 
+    if (isRefreshing) {
+        return <Loader />;
+    }
+
     return (
         <>
             <Suspense fallback={<Loader />}>
                 <Routes>
                     <Route path="register" element={<RestrictedRoute component={<RegisterPage />} />} />
-                    <Route index path="login" element={<RestrictedRoute component={<LoginPage />} />} />
+                    <Route path="login" element={<RestrictedRoute component={<LoginPage />} />} />
                     <Route path="/" element={<PrivateRoute component={<MainLayout />} />}>
                         <Route path="dictionary" element={<PrivateRoute component={<DictionaryPage />} />} />
                         <Route path="recommend" element={<PrivateRoute component={<RecommendPage />} />} />
                         <Route path="training" element={<PrivateRoute component={<TrainingPage />} />} />
-                        <Route path="*" element={<NotFoundPage />} />
                     </Route>
+                    <Route path="*" element={<NotFoundPage />} />
                 </Routes>
                 <Toaster />
             </Suspense>

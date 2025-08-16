@@ -12,6 +12,7 @@ const initialState = {
     isAuthLoading: false,
     isAuthError: null,
     isLoggedIn: false,
+    isRefreshing: false,
 };
 
 const slice = createSlice({
@@ -76,9 +77,22 @@ const slice = createSlice({
                 state.user.email = action.payload.email;
                 state.user.name = action.payload.name;
                 state.token = action.payload.token;
+
+                state.isLoggedIn = true;
+                state.isRefreshing = false;
+            })
+            .addCase(currentUserThunk.pending, state => {
+                state.isRefreshing = true;
             })
             .addCase(currentUserThunk.rejected, (state, action) => {
                 state.isAuthError = action.payload;
+                state.token = null;
+                state.user.email = null;
+                state.user.name = null;
+                state.user.id = null;
+
+                state.isLoggedIn = false;
+                state.isRefreshing = false;
             }),
 });
 

@@ -7,3 +7,4 @@ export const selectIsAuthLoading = state => state.auth.isAuthLoading;
 export const selectIsAuthError = state => state.auth.isAuthError;
 export const selectIsLoggedIn = state => state.auth.isLoggedIn;
 export const selectToken = state => state.auth.token;
+export const selectIsRefreshing = state => state.auth.isRefreshing;
